@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-
 class Driver extends Equatable {
   Driver({
     required this.location,
@@ -27,6 +26,7 @@ class Driver extends Equatable {
     required this.refusedOrder,
     required this.orders,
     required this.v,
+    required this.resetToken,
   });
 
   Location location;
@@ -53,6 +53,7 @@ class Driver extends Equatable {
   List<dynamic> refusedOrder;
   List<dynamic> orders;
   int v;
+  dynamic resetToken;
 
   Map<String, dynamic> toMap() => {
         "location": location.toMap(),
@@ -79,8 +80,8 @@ class Driver extends Equatable {
         "refusedOrder": List<dynamic>.from(refusedOrder.map((x) => x)),
         "orders": List<dynamic>.from(orders.map((x) => x)),
         "__v": v,
+        "resetToken": resetToken,
       };
-
 
   @override
   List<Object?> get props => [
@@ -108,6 +109,7 @@ class Driver extends Equatable {
         refusedOrder,
         orders,
         v,
+        resetToken,
       ];
 }
 
@@ -124,7 +126,6 @@ class Location extends Equatable {
         "type": type,
         "coordinates": List<dynamic>.from(coordinates.map((x) => x)),
       };
-
 
   @override
   List<Object?> get props => [

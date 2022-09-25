@@ -26,6 +26,7 @@ class DriverModel extends Driver {
     required super.refusedOrder,
     required super.orders,
     required super.v,
+    required super.resetToken,
   });
 
   DriverModel copyWith({
@@ -34,7 +35,7 @@ class DriverModel extends Driver {
     String? isOnline,
     String? hasOrder,
     int? requiredMoney,
-    dynamic? img,
+    dynamic img,
     String? id,
     String? username,
     String? phone,
@@ -53,6 +54,7 @@ class DriverModel extends Driver {
     List<dynamic>? refusedOrder,
     List<dynamic>? orders,
     int? v,
+    dynamic resetToken,
   }) {
     return DriverModel(
       location: location ?? this.location,
@@ -79,6 +81,7 @@ class DriverModel extends Driver {
       refusedOrder: refusedOrder ?? this.refusedOrder,
       orders: orders ?? this.orders,
       v: v ?? this.v,
+      resetToken: resetToken??this.resetToken,
     );
   }
 
@@ -107,6 +110,7 @@ class DriverModel extends Driver {
         refusedOrder: List<dynamic>.from(json["refusedOrder"].map((x) => x)),
         orders: List<dynamic>.from(json["orders"].map((x) => x)),
         v: json["__v"],
+        resetToken: json['resetToken']
       );
 }
 

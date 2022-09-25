@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/features/auth/domain/entities/driver_login.dart';
 import 'package:yalla_delivery/features/auth/domain/usecases/get_driver_login_data_usecase.dart';
+import 'package:yalla_delivery/features/my_Profile/data/models/driver_model.dart';
 import '../../../../core/errors/failure.dart';
 import '../../../../core/functions/helper_functions.dart';
 part 'auth_state.dart';
@@ -26,8 +27,9 @@ class AuthCubit extends Cubit<AuthState> {
       return AuthErrorState(errorMessege: l.messege);
     }, (r) {
       debugPrint(r.toString());
-      HelperFunctions.saveDriverId(r.driver.id);
+      HelperFunctions.saveDriver(r.driver as DriverModel);
       return AuthLoadedState(driverLogin: r);
     }));
   }
 }
+//619ca4ef7194d731d0ade24d

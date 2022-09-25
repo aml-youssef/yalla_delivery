@@ -19,7 +19,7 @@ import 'features/my_Profile/domain/repositories/base_driver_repository.dart';
 final sl = GetIt.instance;
 
 class ServiceLocator {
-  void init() async{
+  Future<void> init() async{
     //bloc
     sl.registerFactory(() => AuthCubit(getDriverLoginDataUsecase: sl()));
 
@@ -52,10 +52,10 @@ class ServiceLocator {
 
     //data source
     sl.registerLazySingleton<BaseRemoteDataSource>(
-        () => RemoteDataSource(dioHelper: sl()));
+        () => RemoteDataSource(dio: sl()));
 
     sl.registerLazySingleton<MyProfileBaseRemoteDataSource>(
-        () => MyProfileRemoteDataSource(dioHelper: sl()));
+        () => MyProfileRemoteDataSource(dio: sl()));
 
 
     //external
@@ -79,7 +79,7 @@ class ServiceLocator {
           ),
         ));
 
-    final sharedPreferences = await SharedPreferences.getInstance();
+    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sl.registerLazySingleton(() => sharedPreferences);
   }
 }

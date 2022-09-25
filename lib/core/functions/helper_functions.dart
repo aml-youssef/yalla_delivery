@@ -20,65 +20,68 @@ class HelperFunctions {
     return '$minutes:$seconds';
   }
 
-  static Future<T?> errorBar<T>(
+  static void errorBar(
     BuildContext context, {
     String? title,
     required String message,
     Duration duration = const Duration(seconds: 4),
   }) {
-    return showFlash<T>(
+    showFlash(
       context: context,
-      duration: duration,
-      builder: (context, controller) {
-        return Directionality(
-          textDirection: TextDirection.rtl,
-          child: Flash(
-            behavior: FlashBehavior.fixed,
-            controller: controller,
-            horizontalDismissDirection: HorizontalDismissDirection.horizontal,
-            backgroundColor: Colors.black87,
-            child: FlashBar(
-              title: title == null
-                  ? null
-                  : Text('login', style: _titleStyle(context, Colors.white)),
-              content:
-                  Text(message, style: _contentStyle(context, Colors.white)),
-              icon: Icon(Icons.warning, color: Colors.red[300]),
-              indicatorColor: Colors.red[300],
-            ),
+      duration: const Duration(seconds: 2),
+      builder: (_, controller) {
+        return Flash(
+          controller: controller, //
+          backgroundColor: Colors.black87, //
+          brightness: Brightness.light,
+          boxShadows: [BoxShadow(blurRadius: 4)],
+          barrierBlur: 3.0,
+          horizontalDismissDirection: HorizontalDismissDirection.horizontal, //
+          barrierColor: Colors.black38,
+          barrierDismissible: true,
+          behavior: FlashBehavior.fixed, //
+          position: FlashPosition.top,
+          child: FlashBar(
+            title: title == null //////
+                ? null
+                : Text('login', style: _titleStyle(context, Colors.white)),
+            content:
+                Text(message, style: _contentStyle(context, Colors.white)), //
+            icon: Icon(Icons.warning, color: Colors.red[300]),
+            indicatorColor: Colors.red[300],
           ),
         );
       },
     );
   }
-
-  static Future<T?> successBar<T>(
+  static void successBar(
     BuildContext context, {
     String? title,
     required String message,
-    Duration duration = const Duration(seconds: 2),
+    Duration duration = const Duration(seconds: 4),
   }) {
-    return showFlash<T>(
+    showFlash(
       context: context,
-      duration: duration,
-      builder: (context, controller) {
-        return Directionality(
-          textDirection: TextDirection.rtl,
-          child: Flash(
-            behavior: FlashBehavior.fixed,
-            alignment: Alignment.bottomCenter,
-            controller: controller,
-            horizontalDismissDirection: HorizontalDismissDirection.horizontal,
-            backgroundColor: Colors.black87,
-            child: FlashBar(
-              title: title == null
-                  ? null
-                  : Text('login', style: _titleStyle(context, Colors.white)),
-              content:
-                  Text(message, style: _contentStyle(context, Colors.white)),
-              icon: Icon(Icons.check, color: Colors.green[300]),
-              indicatorColor: Colors.green[300],
-            ),
+      duration: const Duration(seconds: 2),
+      builder: (_, controller) {
+        return Flash(
+          controller: controller, //
+          backgroundColor: Colors.black87, //
+          brightness: Brightness.light,
+          boxShadows: [BoxShadow(blurRadius: 4)],
+          barrierBlur: 3.0,
+          horizontalDismissDirection: HorizontalDismissDirection.horizontal, //
+          barrierColor: Colors.black38,
+          barrierDismissible: true,
+          behavior: FlashBehavior.fixed, //
+          position: FlashPosition.top,
+          child: FlashBar(
+            title: title == null
+                ? null
+                : Text('login', style: _titleStyle(context, Colors.white)),
+            content: Text(message, style: _contentStyle(context, Colors.white)),
+            icon: Icon(Icons.check, color: Colors.green[300]),
+            indicatorColor: Colors.green[300],
           ),
         );
       },
@@ -145,14 +148,12 @@ TextStyle _contentStyle(BuildContext context, [Color? color]) {
       .copyWith(color: color);
 }
 
-
 // static String? getDriverid() {
 //     SharedPreferences sharedPreferences = sl<SharedPreferences>();
-    
 //     return sharedPreferences.getString(kcashedUserData);
 //   }
-
 //   static saveDriverId(String driverId) async {
 //     SharedPreferences sharedPreferences = sl<SharedPreferences>();
 //     await sharedPreferences.setString(kcashedUserData, driverId);
 //   }
+

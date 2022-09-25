@@ -13,26 +13,37 @@ abstract class BaseRemoteDataSource {
 }
 
 class RemoteDataSource implements BaseRemoteDataSource {
-  final DioHelper dioHelper;
+  // final DioHelper dioHelper;
 
-  RemoteDataSource({required this.dioHelper});
+  // RemoteDataSource({required this.dioHelper});
+
+  final Dio dio;
+
+  RemoteDataSource({required this.dio});
 
   @override
   Future<DriverLoginModel> getDriverLoginData(
       {required String userName, required String password}) async {
     final bool isConnected = await _isConnected;
     if (isConnected) {
-      Response response =
-          await dioHelper.postData(url: ApiEndPoints.driverLogin, data: {
-        'username': userName,
-        'password': password,
-      });
-      if (response.statusCode == 200) {
-        return DriverLoginModel.fromMap(response.data);
-      } else {
-        throw ServerExeption(
-            errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
-      }
+      // Response response =
+      return dio
+          .post(ApiEndPoints.driverLogin, data: {
+            'username': userName,
+            'password': password,
+          })
+          .then((response) => DriverLoginModel.fromMap(response.data))
+          .catchError((response) {
+            throw ServerExeption(
+                errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
+          });
+
+      // if (response.statusCode == 200) {
+      //   return DriverLoginModel.fromMap(response.data);
+      // } else {
+      //   throw ServerExeption(
+      //       errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
+      // }
     } else {
       throw IntenetConnectionException(errorMessege: 'you are not connected');
     }

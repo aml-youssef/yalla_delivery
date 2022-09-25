@@ -6,6 +6,7 @@ class RegisterTextField extends StatefulWidget {
   final TextInputType? type;
   final ValueChanged<String>? onChange;
   final ValueChanged<String?>? onSaved;
+  final void Function()? onTap;
   final bool? edit, enabled, visibility, readOnly;
   final Function? onChangeCountry, onInit;
   final TextEditingController? controller;
@@ -29,6 +30,7 @@ class RegisterTextField extends StatefulWidget {
       this.controller,
       this.validator,
       this.fillColor,
+      this.onTap,
       })
       : super(key: key);
 
@@ -47,6 +49,7 @@ class _RegisterTextFieldState extends State<RegisterTextField> {
             ? TextDirection.ltr
             : TextDirection.rtl,
         child: TextFormField(
+          onTap: widget.onTap,
           readOnly: widget.readOnly ?? false,
           onSaved: widget.onSaved,
           controller: widget.controller,

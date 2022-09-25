@@ -35,7 +35,7 @@ class ImagePickerDialog {
   }
 
   openCamera(
-    ValueChanged<File> onGet,
+    ValueChanged<CroppedFile?> onGet,
     BuildContext context, {
     bool back = true,
     bool allowCrop = true,
@@ -43,18 +43,17 @@ class ImagePickerDialog {
     var image = await ImagePicker().pickImage(source: ImageSource.camera);
     if (image != null) {
       if (!back || !allowCrop) {
-        onGet(File(image.path));
+        onGet(CroppedFile(image.path));
 
         return;
       }
-      _cropImage(File(image.path), onGet, context);
+      _cropImage(XFile(image.path), onGet, context);
     } else {
       // NavigationService.goBack();
     }
   }
-
   openGallery(
-    ValueChanged<File> onGet,
+    ValueChanged<CroppedFile?> onGet,
     BuildContext context, {
     bool back = true,
     bool allowCrop = true,
@@ -62,21 +61,22 @@ class ImagePickerDialog {
     var image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
       if (!back || !allowCrop) {
-        var completePath = image.path;
-        var fileName = (completePath.split('/').last);
-        var filePath = completePath.replaceAll('/$fileName', '');
-        var imageNew = await File(image.path).rename('$filePath/name.jpg');
-        onGet(imageNew);
+        // var completePath = image.path;
+        // var fileName = (completePath.split('/').last);
+        // var filePath = completePath.replaceAll('/$fileName', '');
+        // var imageNew = await XFile(image.path); //.rename('$filePath/name.jpg');
+        // onGet(imageNew);
+        onGet(CroppedFile(image.path));
         return;
       }
-      _cropImage(File(image.path), onGet, context);
+      _cropImage(XFile(image.path), onGet, context);
     } else {
       // NavigationService.goBack();
     }
   }
 
-  _cropImage(File image, ValueChanged<File> onGet, BuildContext context) async {
-    File? croppedFile = ImageCropper().cropImage(
+  _cropImage(XFile image, ValueChanged<CroppedFile?> onGet, BuildContext context) async {
+    CroppedFile? croppedFile = await ImageCropper().cropImage(
       sourcePath: image.path,
       maxWidth: 512,
       maxHeight: 512,
@@ -103,13 +103,14 @@ class ImagePickerDialog {
           context: context,
         ),
       ],
-    ) as File;
+    );
+    // as File
     onGet(croppedFile);
     Navigator.pop(context);
   }
 
   show({
-    required ValueChanged<File> onGet,
+    required ValueChanged<CroppedFile?> onGet,
     required BuildContext context,
     bool allowCrop = true,
   }) {

@@ -5,13 +5,14 @@ import 'package:yalla_delivery/service_locator.dart';
 import 'app.dart';
 import 'bloc_observer.dart';
 
-void main() {
+Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  ServiceLocator().init();
+  await ServiceLocator().init();
   Bloc.observer = AppBlocObserver();
   
   runApp(const MyApp());
 }
+//flutter run --verbose

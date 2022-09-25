@@ -24,11 +24,10 @@ class MyprofileCubit extends Cubit<MyprofileState> {
       : super(MyprofileInitialState());
 
   Future<void> getMyProfileData() async {
-    emit(MyprofileLoadingState());
-    Driver driver = HelperFunctions.getDriver()!;
+    Driver? driver = HelperFunctions.getDriver();
     // if (driver == null) {
-    //   Either<Failure, Driver> result =
-    //       await getDriverDataUsecase(paramter: GetDriverDataParamters(id: id));
+    //   Either<Failure, Driver> result = await getDriverDataUsecase(
+    //       paramter: GetDriverDataParamters(id: '6316fbdf241031002312eefc'));
     //   emit(result.fold((l) {
     //     debugPrint(l.toString());
     //     return MyprofileErrorState(errorMessege: l.messege);
@@ -36,9 +35,13 @@ class MyprofileCubit extends Cubit<MyprofileState> {
     //     debugPrint(r.toString());
     //     return MyprofileLoadedState(driver: r);
     //   }));
+    // } else {
+    //   debugPrint(driver.toString());
+    //   debugPrint('3o3o3o3o3o3o3o3oo3o3333333333333333333oooooooo3o3o3oo3');
+    //   emit(MyprofileLoadedState(driver: driver));
     // }
     debugPrint(driver.toString());
-    emit(MyprofileLoadedState(driver: driver));
+    emit(MyprofileLoadedState(driver: driver!));
   }
 
   Future<void> updateMyProfileImg({required File img}) async {

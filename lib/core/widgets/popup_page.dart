@@ -59,7 +59,7 @@ class PopUpPage extends StatelessWidget {
           bottomNavigationBar: bottomNavigationBar,
           appBar: showAppbar
               ? PreferredSize(
-                  preferredSize: Size.fromHeight(context.appBarHeight!),
+                  preferredSize: Size.fromHeight(context.height * 0.1),
                   child: CustomAppBar(
                     title: appBartitle!,
                     back: appBarWithBack,
