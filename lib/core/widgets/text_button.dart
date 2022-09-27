@@ -5,43 +5,44 @@ import '../../config/themes/themes.dart';
 
 class CustomTextButton extends StatelessWidget {
   final String? title;
-  final double? width, radius;
+  final double? width, radius, buttonFontSize;
   final void Function() function;
-  const CustomTextButton(
-      {Key? key,
-      required this.title,
-      required this.function,
-      this.width,
-      this.radius})
-      : super(key: key);
+  const CustomTextButton({
+    Key? key,
+    required this.title,
+    required this.function,
+    this.width,
+    this.radius,
+    this.buttonFontSize,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: context.height * 0.05,
-      width: width ?? context.width * 0.34,
+      width: width ?? context.width * 0.35,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          // Foreground color
-          onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
-          // Background color
-          primary: MainStyle.primaryColor,
+          padding: const EdgeInsets.all(0),
+          // foregroundColor : Theme.of(context).colorScheme.onSecondaryContainer,
+          backgroundColor: MainStyle.primaryColor,
           shadowColor: MainStyle.shadowColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radius ?? 10),
           ),
-          elevation: 5,
+          elevation: 2,
         ),
         onPressed: function,
         child: Text(
           title!,
-          style: MainTheme.buttonTextStyle,
+          style: MainTheme.buttonTextStyle.copyWith(fontSize: buttonFontSize),
           textAlign: TextAlign.center,
         ),
       ),
     );
   }
 }
+
 // TextButton(
 //         onPressed: function,
 //         child: Text(

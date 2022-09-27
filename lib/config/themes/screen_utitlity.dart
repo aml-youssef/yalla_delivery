@@ -7,4 +7,7 @@ class MainStyle {
   static const Color mainGray = Color(0xff9EA3A1);
 
   static const Color shadowColor = Color(0xff707070);
+
+  static const Color mainTextColor = Color(0xff000000);
+
 }
