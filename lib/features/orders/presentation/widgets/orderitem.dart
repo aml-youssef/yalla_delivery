@@ -19,7 +19,7 @@ class OrdersItem extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
+          borderRadius: BorderRadius.circular(16.0),
         ),
         child: Directionality(
           textDirection: TextDirection.rtl,
@@ -54,14 +54,10 @@ class OrdersItem extends StatelessWidget {
                             child: Text(
                               'العنوان : حي الحارثية بغدادت',
                               maxLines: 4,
+                              softWrap: true,
                               style: MainTheme.mainTextStyle,
                             ),
                           ),
-                          // Text(
-                          //   'حى الحارثية - بغدادghghhhhyfvjkuhhhhhhhhhhhhhhhhhh',
-                          //   softWrap: true,
-                          //   style: MainTheme.mainTextStyle,
-                          // ),
                         ],
                       ),
                       Row(
@@ -97,9 +93,7 @@ class OrdersItem extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 8,
-                ),
+                const SizedBox(width: 8),
                 Visibility(
                   visible: isAcceptd,
                   child: Column(

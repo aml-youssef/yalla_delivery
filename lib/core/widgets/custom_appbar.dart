@@ -5,23 +5,26 @@ import '../../config/themes/themes.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String? title;
-  final bool? back;
-  const CustomAppBar({Key? key, required this.title, this.back})
+  final bool? back, rtl;
+  const CustomAppBar({Key? key, required this.title, this.back, this.rtl})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: MainStyle.primaryColor,
       title: Row(
-        textDirection: TextDirection.rtl,
+        textDirection: rtl == true? TextDirection.rtl: TextDirection.ltr,
         children: [
           Visibility(
               visible: back == true,
               child: IconButton(
                 padding: const EdgeInsets.only(top: 30),
-                onPressed: () {}, //NavigationService.goBack(),
-                icon: const Icon(
-                  Icons.arrow_back_ios,
+                onPressed: () {
+                  Navigator.pop(context);
+                }, //NavigationService.goBack(),
+                icon: Icon(
+                  rtl == true ?Icons.arrow_forward_ios:Icons.arrow_back_ios,
                   color: Colors.white,
                 ),
               )),
@@ -29,7 +32,7 @@ class CustomAppBar extends StatelessWidget {
             padding: const EdgeInsets.only(top: 30),
             child: Text(
               title!,
-              style: MainTheme.headingTextStyle,
+              style: MainTheme.buttonTextStyle.copyWith(fontSize: 18),
             ),
           ),
         ],

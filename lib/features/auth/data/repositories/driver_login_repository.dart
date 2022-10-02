@@ -2,13 +2,14 @@ import 'package:yalla_delivery/core/errors/exceptions.dart';
 import 'package:yalla_delivery/features/auth/domain/entities/driver_login.dart';
 import 'package:yalla_delivery/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:yalla_delivery/features/auth/domain/entities/requist.dart';
 import '../../domain/repositories/base_driver_login_repository.dart';
-import '../datasources/remote_datasource.dart';
+import '../datasources/auth_remote_datasource.dart';
 
-class DriverLoginRepository implements BaseDriverLoginRepository {
-  final BaseRemoteDataSource baseRemoteDataSource;
+class DriverAuthRepository implements BaseDriverAuthRepository {
+  final BaseAuthRemoteDataSource baseRemoteDataSource;
 
-  DriverLoginRepository({required this.baseRemoteDataSource});
+  DriverAuthRepository({required this.baseRemoteDataSource});
   @override
   Future<Either<Failure, DriverLogin>> getDriverLoginData({
     required String userName,
@@ -21,7 +22,31 @@ class DriverLoginRepository implements BaseDriverLoginRepository {
       );
       return Right(response);
     } on ServerExeption catch (error) {
-      return Left(ServerFailure(messege:  error.errorMessegeModel.toString()));
+      return Left(ServerFailure(messege: error.errormsg));
+    } on IntenetConnectionException catch (error) {
+      return Left(IntenetConnectionFailure(messege: error.errorMessege));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Requist>> getDriverRequistData({
+    required String username,
+    required String phone,
+    required String address,
+    required String motoType,
+    required String age,
+  }) async {
+    try {
+      final response = await baseRemoteDataSource.createRequist(
+        username: username,
+        phone: phone,
+        address: address,
+        motoType: motoType,
+        age: age,
+      );
+      return Right(response);
+    } on ServerExeption catch (error) {
+      return Left(ServerFailure(messege: error.errormsg));
     } on IntenetConnectionException catch (error) {
       return Left(IntenetConnectionFailure(messege: error.errorMessege));
     }

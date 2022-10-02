@@ -7,7 +7,7 @@ import '../../../../core/usecase/usecase.dart';
 
 class GetDriverLoginDataUsecase
     implements BaseUsecase<DriverLogin, GetDriverLoginDataParamters> {
-  final BaseDriverLoginRepository baseDriverLoginRepository;
+  final BaseDriverAuthRepository baseDriverLoginRepository;
 
   GetDriverLoginDataUsecase({required this.baseDriverLoginRepository});
 
@@ -25,7 +25,8 @@ class GetDriverLoginDataParamters extends Equatable {
   final String userName;
   final String password;
 
-  const GetDriverLoginDataParamters({required this.userName, required this.password});
+  const GetDriverLoginDataParamters(
+      {required this.userName, required this.password});
 
   @override
   List<Object?> get props => [userName, password];

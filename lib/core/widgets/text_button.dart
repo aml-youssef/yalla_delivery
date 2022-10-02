@@ -30,7 +30,7 @@ class CustomTextButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radius ?? 10),
           ),
-          elevation: 2,
+          elevation: 0,
         ),
         onPressed: function,
         child: Text(

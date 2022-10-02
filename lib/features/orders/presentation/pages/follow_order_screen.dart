@@ -4,16 +4,18 @@ import '../../../../core/widgets/custom_appbar.dart';
 import '../../../../core/widgets/text_button.dart';
 
 class FollowOrderScreen extends StatelessWidget {
-  const FollowOrderScreen({Key? key}) : super(key: key);
+  FollowOrderScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
     List<String> meals = [
       'برجر بالجبن عدد 2',
       'بيتزا بصدر الدجاج عدد 3',
       'ميلك شيك أوريو عدد 2',
       'كيكة فانيلا عدد 1'
     ];
+
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         child: CustomAppBar(

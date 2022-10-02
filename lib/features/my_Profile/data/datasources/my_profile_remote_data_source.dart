@@ -34,8 +34,7 @@ class MyProfileRemoteDataSource implements MyProfileBaseRemoteDataSource {
         if (response.data == null) throw ArgumentError();
         return DriverModel.fromMap(response.data);
       } else {
-        throw ServerExeption(
-            errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
+        throw ServerExeption(errormsg: 'alllllllllllllllloo');
       }
     } else {
       throw IntenetConnectionException(errorMessege: 'you are not connected');
@@ -53,17 +52,10 @@ class MyProfileRemoteDataSource implements MyProfileBaseRemoteDataSource {
         "files": await MultipartFile.fromFile(img.path, filename:fileName),
     });
     Response response = await dio.put(ApiEndPoints.driverImg, data: formData);
-
-      // Response response =
-      //     await dioHelper.putData(url: ApiEndPoints.driverImg, data: {
-      //   '_id': id,
-      //   'files': img,
-      // });
       if (response.statusCode == 200) {
         return DriverModel.fromMap(response.data['driver']);
       } else {
-        throw ServerExeption(
-            errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
+        throw ServerExeption(errormsg: 'alllllllllllllllloo');
       }
     } else {
       throw IntenetConnectionException(errorMessege: 'you are not connected');
@@ -86,8 +78,7 @@ class MyProfileRemoteDataSource implements MyProfileBaseRemoteDataSource {
       if (response.statusCode == 200) {
         return DriverModel.fromMap(response.data['driver']);
       } else {
-        throw ServerExeption(
-            errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
+        throw ServerExeption(errormsg: 'alllllllllllllllloo');
       }
     } else {
       throw IntenetConnectionException(errorMessege: 'you are not connected');

@@ -15,7 +15,7 @@ class MainTheme {
       fontFamily: 'Cairo');
 
   static TextStyle hintTextStyle = const TextStyle(
-      fontSize: 12,
+      fontSize: 14,
       fontWeight: FontWeight.w600,
       color: MainStyle.mainGray,
       fontFamily: 'Cairo');
@@ -27,10 +27,11 @@ class MainTheme {
       fontFamily: 'Cairo');
 
   static TextStyle headingTextStyle2 = const TextStyle(
-      fontSize: 18, color: MainStyle.selectedIconColor, fontFamily: 'Cairo');
+      fontSize: 18, color: MainStyle.selectedIconColor, fontFamily: 'Cairo',);
 
   static TextStyle subTextStyle =
-      TextStyle(fontSize: 15, color: Colors.grey[200], fontFamily: 'Cairo');
+      TextStyle(fontSize: 15, color: Colors.grey[200], fontFamily: 'Cairo',);
+      
   static TextStyle subTextStyle2 = const TextStyle(
       fontSize: 10, color: MainStyle.mainGray, fontFamily: 'Cairo');
 

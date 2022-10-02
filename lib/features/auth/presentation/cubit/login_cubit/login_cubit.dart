@@ -3,32 +3,35 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/features/auth/domain/entities/driver_login.dart';
+import 'package:yalla_delivery/features/auth/domain/entities/requist.dart';
+import 'package:yalla_delivery/features/auth/domain/usecases/create_driver_requist_usecase.dart';
 import 'package:yalla_delivery/features/auth/domain/usecases/get_driver_login_data_usecase.dart';
 import 'package:yalla_delivery/features/my_Profile/data/models/driver_model.dart';
-import '../../../../core/errors/failure.dart';
-import '../../../../core/functions/helper_functions.dart';
-part 'auth_state.dart';
 
-class AuthCubit extends Cubit<AuthState> {
+import '../../../../../core/errors/failure.dart';
+import '../../../../../core/functions/helper_functions.dart';
+part 'login_state.dart';
+
+class LoginCubit extends Cubit<LoginState> {
   final GetDriverLoginDataUsecase getDriverLoginDataUsecase;
-  AuthCubit({required this.getDriverLoginDataUsecase})
-      : super(AuthInitialState());
+  LoginCubit({required this.getDriverLoginDataUsecase})
+      : super(LoginInitialState());
 
   Future<void> getDriverLoginData({
     required String userName,
     required String password,
   }) async {
-    emit(AuthLoadingState());
+    emit(LoginLoadingState());
     Either<Failure, DriverLogin> result = await getDriverLoginDataUsecase(
         paramter: GetDriverLoginDataParamters(
             userName: userName, password: password));
     emit(result.fold((l) {
       debugPrint(l.toString());
-      return AuthErrorState(errorMessege: l.messege);
+      return LoginErrorState(errorMessege: l.messege);
     }, (r) {
       debugPrint(r.toString());
       HelperFunctions.saveDriver(r.driver as DriverModel);
-      return AuthLoadedState(driverLogin: r);
+      return LoginLoadedState(driverLogin: r);
     }));
   }
 }

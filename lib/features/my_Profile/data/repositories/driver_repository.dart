@@ -19,7 +19,7 @@ class DriverRepository implements BaseDriverRepository {
           await myProfileBaseRemoteDataSource.getDriverData(id: id);
       return right(response);
     } on ServerExeption catch (error) {
-      return Left(ServerFailure(messege: error.errorMessegeModel.toString()));
+      return Left(ServerFailure(messege: error.errormsg));
     } on IntenetConnectionException catch (error) {
       return Left(IntenetConnectionFailure(messege: error.errorMessege));
     }
@@ -33,7 +33,7 @@ class DriverRepository implements BaseDriverRepository {
           await myProfileBaseRemoteDataSource.updateDriverImg(id: id, img: img);
       return right(response);
     } on ServerExeption catch (error) {
-      return Left(ServerFailure(messege: error.errorMessegeModel.toString()));
+      return Left(ServerFailure(messege: error.errormsg));
     } on IntenetConnectionException catch (error) {
       return Left(IntenetConnectionFailure(messege: error.errorMessege));
     }
@@ -52,7 +52,7 @@ class DriverRepository implements BaseDriverRepository {
       );
       return right(response);
     } on ServerExeption catch (error) {
-      return Left(ServerFailure(messege: error.errorMessegeModel.toString()));
+      return Left(ServerFailure(messege: error.errormsg));
     } on IntenetConnectionException catch (error) {
       return Left(IntenetConnectionFailure(messege: error.errorMessege));
     }

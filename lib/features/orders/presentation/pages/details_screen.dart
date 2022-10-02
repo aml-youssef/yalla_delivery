@@ -69,17 +69,17 @@ class DetailsScreen extends StatelessWidget {
                               Text(
                                 'برجر بالجبن',
                                 style: MainTheme.hintTextStyle
-                                    .copyWith(fontSize: 14),
+                                    ,
                               ),
                               Text(
                                 '2',
                                 style: MainTheme.hintTextStyle
-                                    .copyWith(fontSize: 14),
+                                    ,
                               ),
                               Text(
                                 '50 دينار',
                                 style: MainTheme.hintTextStyle
-                                    .copyWith(fontSize: 14),
+                                    ,
                               ),
                             ],
                           ),

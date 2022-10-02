@@ -65,7 +65,7 @@ class CancelOrderScreen extends StatelessWidget {
                   ),
                   Text(
                     'هاتف الزبون مغلق',
-                    style: MainTheme.hintTextStyle.copyWith(fontSize: 14),
+                    style: MainTheme.hintTextStyle,
                   )
                 ],
               ),
@@ -85,7 +85,7 @@ class CancelOrderScreen extends StatelessWidget {
                   ),
                   Text(
                     'الزبون لا يرد',
-                    style: MainTheme.hintTextStyle.copyWith(fontSize: 14),
+                    style: MainTheme.hintTextStyle,
                   )
                 ],
               ),
@@ -105,7 +105,7 @@ class CancelOrderScreen extends StatelessWidget {
                   ),
                   Text(
                     'مكان الزبون غير آمن',
-                    style: MainTheme.hintTextStyle.copyWith(fontSize: 14),
+                    style: MainTheme.hintTextStyle,
                   )
                 ],
               ),
@@ -127,7 +127,7 @@ class CancelOrderScreen extends StatelessWidget {
                   ),
                   Text(
                     'أسباب أخرى',
-                    style: MainTheme.hintTextStyle.copyWith(fontSize: 14),
+                    style: MainTheme.hintTextStyle,
                   )
                 ],
               ),

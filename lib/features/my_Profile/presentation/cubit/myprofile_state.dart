@@ -20,7 +20,7 @@ class MyprofileLoadedState extends MyprofileState {
   const MyprofileLoadedState({required this.driver});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [driver];
 }
 
 class MyprofileErrorState extends MyprofileState {
@@ -29,5 +29,5 @@ class MyprofileErrorState extends MyprofileState {
   const MyprofileErrorState({required this.errorMessege});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [errorMessege];
 }

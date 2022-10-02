@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "791156231222",
+    "project_id": "yalladeliverydriver",
+    "storage_bucket": "yalladeliverydriver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791156231222:android:71dddaf2045436c655dc97",
+        "android_client_info": {
+          "package_name": "com.example.yalla_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "791156231222-sc2qm39aq2vbdgkmv28acfnk1scfrat4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8JLkVHJ3wg-acCPmJ845zzcc_qdtAp20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "791156231222-sc2qm39aq2vbdgkmv28acfnk1scfrat4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

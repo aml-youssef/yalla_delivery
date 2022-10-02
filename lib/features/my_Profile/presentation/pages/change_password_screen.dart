@@ -19,30 +19,26 @@ class ChangePasswordScreen extends StatelessWidget {
       return;
     }
     formKey.currentState!.save();
-    String errorMsg;
     if (newPassword != newPasswordAgain) {
-      errorMsg = 'different New Passwords';
-      HelperFunctions.errorBar(context, message: errorMsg);
+      HelperFunctions.errorBar(context, message: 'different New Passwords');
       return;
     }
     if (newPassword == oldPassword) {
-      errorMsg = 'Old password and new password are the same';
-      HelperFunctions.errorBar(context, message: errorMsg);
+      HelperFunctions.errorBar(context,
+          message: 'Old password and new password are the same');
       return;
     }
     if (newPassword.length < 6) {
-      errorMsg = 'New password is too short';
+      HelperFunctions.errorBar(context, message: 'New password is too short');
       return;
     }
 
-    BlocProvider.of<MyprofileCubit>(context).changePassword(
+    await BlocProvider.of<MyprofileCubit>(context).changePassword(
       oldPassword: oldPassword,
       newPassword: newPassword,
     );
-    HelperFunctions.successBar(
-      context,
-      message: 'you have changed your password successfully',
-    );
+    HelperFunctions.successBar(context,
+        message: 'you have changed your password successfully');
 
     Navigator.pop(context);
   }

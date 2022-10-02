@@ -1,9 +1,11 @@
 import 'error_messege_model.dart';
 
 class ServerExeption implements Exception {
-  final ErrorMessegeModel errorMessegeModel;
+  // final ErrorMessegeModel errorMessegeModel;
+  // ServerExeption({required this.errorMessegeModel});
+  final String errormsg;
 
-  ServerExeption({required this.errorMessegeModel});
+  ServerExeption({required this.errormsg});
 }
 
 class IntenetConnectionException implements Exception {

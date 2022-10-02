@@ -12,27 +12,28 @@ class RegisterTextField extends StatefulWidget {
   final TextEditingController? controller;
   final Color? fillColor;
   final String? Function(String?)? validator;
-  const RegisterTextField(
-      {Key? key,
-      this.readOnly,
-      this.label,
-      this.icon,
-      this.type,
-      this.hint,
-      this.errorText,
-      this.onChange,
-      this.onSaved,
-      this.edit,
-      this.enabled,
-      this.visibility,
-      this.onChangeCountry,
-      this.onInit,
-      this.controller,
-      this.validator,
-      this.fillColor,
-      this.onTap,
-      })
-      : super(key: key);
+  final InputBorder? border;
+  const RegisterTextField({
+    Key? key,
+    this.readOnly,
+    this.label,
+    this.icon,
+    this.type,
+    this.hint,
+    this.errorText,
+    this.onChange,
+    this.onSaved,
+    this.edit,
+    this.enabled,
+    this.visibility,
+    this.onChangeCountry,
+    this.onInit,
+    this.controller,
+    this.validator,
+    this.fillColor,
+    this.onTap,
+    this.border,
+  }) : super(key: key);
 
   @override
   State<RegisterTextField> createState() => _RegisterTextFieldState();
@@ -103,8 +104,10 @@ class _RegisterTextFieldState extends State<RegisterTextField> {
                 : FloatingLabelBehavior.auto,
             contentPadding: const EdgeInsets.only(
               top: 10,
+              left: 10,
+              right: 10,
             ),
-            border: InputBorder.none,
+            border: widget.border ?? InputBorder.none,
           ),
         ),
       ),
