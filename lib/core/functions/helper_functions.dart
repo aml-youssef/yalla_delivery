@@ -13,6 +13,7 @@ import '../../service_locator.dart';
 import '../utils/constants.dart';
 
 class HelperFunctions {
+  
   static String formatTime(int milliseconds) {
     var secs = milliseconds ~/ 1000;
     var minutes = ((secs % 3600) ~/ 60).toString().padLeft(2, '0');

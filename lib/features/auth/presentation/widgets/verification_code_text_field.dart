@@ -5,14 +5,13 @@ import 'package:pinput/pinput.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 
 import '../../../../config/themes/screen_utitlity.dart';
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
 
 class VerificationCodeTextField extends StatelessWidget {
   VerificationCodeTextField({super.key, this.validator, this.onChange});
   // final ValueChanged<String>? onSubmitted;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChange;
-
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,7 @@ class VerificationCodeTextField extends StatelessWidget {
         textStyle: MainTheme.mainTextStyle.copyWith(fontSize: 16),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 209, 212, 211),
-          border: Border.all(color: MainStyle.primaryColor),
+          border: Border.all(color: MainColors.primaryColor),
           borderRadius: BorderRadius.circular(8),
         ),
       ),
@@ -57,4 +56,3 @@ class VerificationCodeTextField extends StatelessWidget {
     );
   }
 }
-

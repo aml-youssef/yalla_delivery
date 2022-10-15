@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
+
 
 class BalanceCard extends StatelessWidget {
   const BalanceCard({

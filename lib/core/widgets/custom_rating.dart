@@ -43,6 +43,8 @@ class CustomRating extends StatelessWidget {
             child: CustomFormField(
               hintText: 'add_reply', // localization.text('add_reply'),
               minLines: 5,
+              maxLines: 5,
+              maxLength: 150,
               onChanged: (v) {
                 // rateOrder.description = v.trim();
               },

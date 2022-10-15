@@ -11,9 +11,9 @@ class VerificationCubit extends Cubit<VerificationState> {
 
   Future<void> sendVerificationCode(String phoneNumber) async {
     emit(VerificationLoadingState());
-
+    print('kosmy=$phoneNumber');
     await FirebaseAuth.instance.verifyPhoneNumber(
-      phoneNumber: phoneNumber,
+      phoneNumber: '+201207333848',
       timeout: const Duration(minutes: 5),
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {
@@ -50,7 +50,7 @@ class VerificationCubit extends Cubit<VerificationState> {
     emit(VerificationLoadingState());
 
     ////////
-    
+
     emit(VerificationLoadedState());
   }
 }

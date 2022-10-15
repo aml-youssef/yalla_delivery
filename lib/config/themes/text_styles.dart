@@ -11,13 +11,13 @@ class MainTheme {
   static TextStyle mainTextStyle = const TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.bold,
-      color: MainStyle.mainTextColor,
+      color: MainColors.mainTextColor,
       fontFamily: 'Cairo');
 
   static TextStyle hintTextStyle = const TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w600,
-      color: MainStyle.mainGray,
+      color: MainColors.mainGray,
       fontFamily: 'Cairo');
 
   static TextStyle headingTextStyle = const TextStyle(
@@ -27,13 +27,19 @@ class MainTheme {
       fontFamily: 'Cairo');
 
   static TextStyle headingTextStyle2 = const TextStyle(
-      fontSize: 18, color: MainStyle.selectedIconColor, fontFamily: 'Cairo',);
+    fontSize: 18,
+    color: MainColors.selectedIconColor,
+    fontFamily: 'Cairo',
+  );
 
-  static TextStyle subTextStyle =
-      TextStyle(fontSize: 15, color: Colors.grey[200], fontFamily: 'Cairo',);
-      
+  static TextStyle subTextStyle = TextStyle(
+    fontSize: 15,
+    color: Colors.grey[200],
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle subTextStyle2 = const TextStyle(
-      fontSize: 10, color: MainStyle.mainGray, fontFamily: 'Cairo');
+      fontSize: 10, color: MainColors.mainGray, fontFamily: 'Cairo');
 
   static TextStyle errorTextStyle = const TextStyle(
       fontSize: 20,

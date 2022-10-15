@@ -8,7 +8,9 @@ import 'features/auth/presentation/pages/login_screen.dart';
 import 'features/auth/presentation/pages/phone_verification_screen.dart';
 import 'features/auth/presentation/pages/set_password_screen.dart';
 import 'features/auth/presentation/pages/signup_screen.dart';
+import 'features/auth/presentation/pages/verification_code_screen.dart';
 import 'features/balance/presentation/pages/balance_screen.dart';
+import 'features/home/presentation/pages/main_page.dart';
 import 'features/my_Profile/presentation/pages/my_profile_screen.dart';
 import 'features/notifications/presentation/pages/notifications_screen.dart';
 import 'features/orders/presentation/pages/cancel_order_screen.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.onGenetatearoute,
-      home: NotificationsScreen(),
+      home: PhoneVerificationScreen(),
     );
   }
 }

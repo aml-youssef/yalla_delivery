@@ -8,7 +8,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import 'package:yalla_delivery/config/routes/app_routes.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
 import '../../../../core/functions/helper_functions.dart';
 import '../../../../core/widgets/register_text_field.dart';
 import '../../../../core/widgets/text_button.dart';
@@ -46,7 +46,7 @@ class PhoneVerificationScreen extends StatelessWidget {
             );
           }
           if (state is VerificationLoadedState) {
-            Navigator.pushNamed(context, AppRoutes.verificationcodeScreen);
+            // Navigator.pushNamed(context, RoutePaths.verificationcodeScreen);
           }
         },
         builder: (context, state) {
@@ -121,6 +121,7 @@ class PhoneVerificationScreen extends StatelessWidget {
                         return CustomTextButton(
                           title: 'ارسال',
                           function: () {
+                            
                             _saveForm(context);
                           },
                           radius: 25,

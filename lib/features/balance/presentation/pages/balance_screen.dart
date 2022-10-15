@@ -45,7 +45,7 @@ class BalanceScreen extends StatelessWidget {
               width: context.width * 0.45,
               title: 'طلب سحب',
               function: () {
-                Navigator.pushNamed(context, AppRoutes.getMoneyScreen);
+                // Navigator.pushNamed(context, RoutePathss.getMoneyScreen);
               },
             ),
           ],

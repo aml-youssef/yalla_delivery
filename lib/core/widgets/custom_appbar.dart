@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../config/themes/screen_utitlity.dart';
-import '../../config/themes/themes.dart';
+import '../../config/themes/text_styles.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String? title;
@@ -12,9 +12,9 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: MainStyle.primaryColor,
+      backgroundColor: MainColors.primaryColor,
       title: Row(
-        textDirection: rtl == true? TextDirection.rtl: TextDirection.ltr,
+        textDirection: rtl == true ? TextDirection.rtl : TextDirection.ltr,
         children: [
           Visibility(
               visible: back == true,
@@ -24,7 +24,7 @@ class CustomAppBar extends StatelessWidget {
                   Navigator.pop(context);
                 }, //NavigationService.goBack(),
                 icon: Icon(
-                  rtl == true ?Icons.arrow_forward_ios:Icons.arrow_back_ios,
+                  rtl == true ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
                   color: Colors.white,
                 ),
               )),

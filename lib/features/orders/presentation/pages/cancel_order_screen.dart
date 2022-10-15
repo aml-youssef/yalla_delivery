@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla_delivery/config/themes/screen_utitlity.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
 import '../../../../core/widgets/custom_appbar.dart';
 import '../../../../core/widgets/custom_form_field.dart';
 import '../../../../core/widgets/text_button.dart';

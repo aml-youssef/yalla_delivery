@@ -17,6 +17,7 @@ import 'features/auth/domain/usecases/get_driver_login_data_usecase.dart';
 import 'features/auth/presentation/cubit/login_cubit/login_cubit.dart';
 import 'features/auth/presentation/cubit/requist_cubit/requist_cubit.dart';
 import 'features/auth/presentation/cubit/verification_cubit/verification_cubit.dart';
+import 'features/home/presentation/cubit/home_cubit.dart';
 import 'features/my_Profile/data/datasources/my_profile_remote_data_source.dart';
 import 'features/my_Profile/data/repositories/driver_repository.dart';
 import 'features/my_Profile/domain/repositories/base_driver_repository.dart';
@@ -28,7 +29,7 @@ class ServiceLocator {
     //bloc
     sl.registerFactory(() => LoginCubit(getDriverLoginDataUsecase: sl()));
 
-    sl.registerFactory(() => RequistCubit(createDriverRequistUsecase:  sl()));
+    sl.registerFactory(() => RequistCubit(createDriverRequistUsecase: sl()));
 
     sl.registerFactory(() => VerificationCubit());
 
@@ -36,6 +37,7 @@ class ServiceLocator {
 
     sl.registerFactory(() => BalanceCubit());
 
+    sl.registerFactory(() => HomeCubit());
 
     sl.registerFactory(() => MyprofileCubit(
         getDriverDataUsecase: sl(),
@@ -48,7 +50,6 @@ class ServiceLocator {
 
     sl.registerLazySingleton(
         () => CreateDriverRequistUsecase(baseDriverAuthRepository: sl()));
-
 
     sl.registerLazySingleton(
         () => UpdateDriverImgUseCase(baseDriverRepository: sl()));
@@ -91,6 +92,8 @@ class ServiceLocator {
           BaseOptions(
             receiveDataWhenStatusError: true,
             // baseUrl:
+            connectTimeout: 20000,
+            receiveTimeout: 20000,
           ),
         ));
 

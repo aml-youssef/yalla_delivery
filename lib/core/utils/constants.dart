@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../config/themes/screen_utitlity.dart';
 
-
-
 const kAppLogog = 'assets/images/splash.png';
 const kmapIcon = 'assets/images/delivery_icon.png';
 
@@ -15,17 +13,17 @@ ValueNotifier<Locale> locale = ValueNotifier(const Locale('en', 'US'));
 
 ThemeData appTheme = ThemeData(
   appBarTheme: appBarTheme,
-  primaryColor: MainStyle.primaryColor,
+  primaryColor: MainColors.primaryColor,
   fontFamily: 'Cairo',
   backgroundColor: Colors.grey[300],
-  iconTheme: const IconThemeData(color: MainStyle.selectedIconColor),
+  iconTheme: const IconThemeData(color: MainColors.selectedIconColor),
 );
 
 AppBarTheme appBarTheme = const AppBarTheme(
-    color: MainStyle.primaryColor,
-    iconTheme: IconThemeData(color: MainStyle.selectedIconColor),
+    color: MainColors.primaryColor,
+    iconTheme: IconThemeData(color: MainColors.selectedIconColor),
     elevation: 0.0,
-    titleTextStyle: TextStyle(color: MainStyle.selectedIconColor));
+    titleTextStyle: TextStyle(color: MainColors.selectedIconColor));
 
 ///////////////////////////////////////////////////////////
 /// Text Style
@@ -41,7 +39,8 @@ const String klanguage = 'language';
 const String kcashedUserData = 'userData';
 const Duration kDuration = Duration(milliseconds: 500);
 const LatLng defaultLatLng = LatLng(30.033333, 31.233334);
-const googleMapAPIKey = 'AIzaSyDpI-Txo3DNdts1guCpNTiaKofVYJXKGcE'; ////android manfist  ////polylines
+const googleMapAPIKey =
+    'AIzaSyDpI-Txo3DNdts1guCpNTiaKofVYJXKGcE'; ////android manfist  ////polylines
 const double defaultMapZoom = 17.0;
 const double mediumMapZoom = 14.0;
 const double locationArriveDistance = 200.0; //i

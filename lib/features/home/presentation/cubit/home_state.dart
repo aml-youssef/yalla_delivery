@@ -9,15 +9,15 @@ abstract class HomeState extends Equatable {
 
 class HomeInitialState extends HomeState {}
 
-class HomeLoadingState extends HomeState {}
+class HomeChangrNavigatoinBottomState extends HomeState {}
 
-class HomeLoadedState extends HomeState {}
+// class HomeLoadedState extends HomeState {}
 
-class HomeErrorState extends HomeState {
-  final String errormsg;
+// class HomeErrorState extends HomeState {
+//   final String errormsg;
 
-  const HomeErrorState({required this.errormsg});
+//   const HomeErrorState({required this.errormsg});
 
-  @override
-  List<Object> get props => [errormsg];
-}
+//   @override
+//   List<Object> get props => [errormsg];
+// }

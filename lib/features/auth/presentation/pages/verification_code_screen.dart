@@ -8,7 +8,7 @@ import 'package:pinput/pinput.dart';
 import 'package:yalla_delivery/config/routes/app_routes.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 import '../../../../config/themes/app_themes.dart';
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
 import '../../../../core/functions/helper_functions.dart';
 import '../../../../core/widgets/register_text_field.dart';
 import '../../../../core/widgets/text_button.dart';
@@ -49,8 +49,8 @@ class VerificationcodeScreen extends StatelessWidget {
           );
         }
         if (state is VerificationLoadedState) {
-          Navigator.pushNamedAndRemoveUntil(
-              context, AppRoutes.setPasswordScreen, (route) => false);
+          // Navigator.pushNamedAndRemoveUntil(
+          //     context, RoutePaths.setPasswordScreen, (route) => false);
         }
       }, builder: (context, state) {
         return Scaffold(

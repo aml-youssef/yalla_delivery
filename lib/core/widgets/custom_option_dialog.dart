@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
-import 'package:yalla_delivery/core/widgets/text_button.dart';  
-import '../../config/themes/themes.dart';
+import 'package:yalla_delivery/core/widgets/text_button.dart';
+import '../../config/themes/text_styles.dart';
 
 class CustomOptionDialog extends StatelessWidget {
   final String title;
@@ -12,19 +12,20 @@ class CustomOptionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Text(
         title,
         textAlign: TextAlign.center,
-        style: MainTheme.headingTextStyle.copyWith(color: Colors.black),
+        style: MainTheme.mainTextStyle.copyWith(fontSize: 14),
       ),
       actions: [
-        SizedBox(
-          width: context.width * 0.7,
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CustomTextButton(
+                width: context.width * 0.17,
                 title: 'no', // localization.text('no'),
                 function: () {
                   // NavigationService.goBack();
@@ -32,7 +33,8 @@ class CustomOptionDialog extends StatelessWidget {
                 },
               ),
               CustomTextButton(
-                title: 'yes' ,//localization.text('yes'),
+                width: context.width * 0.17,
+                title: 'yes', //localization.text('yes'),
                 function: function,
               )
             ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 import '../../config/themes/screen_utitlity.dart';
-import '../../config/themes/themes.dart';
+import '../../config/themes/text_styles.dart';
 
 class CustomTextButton extends StatelessWidget {
   final String? title;
@@ -25,8 +25,8 @@ class CustomTextButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(0),
           // foregroundColor : Theme.of(context).colorScheme.onSecondaryContainer,
-          backgroundColor: MainStyle.primaryColor,
-          shadowColor: MainStyle.shadowColor,
+          backgroundColor: MainColors.primaryColor,
+          shadowColor: MainColors.shadowColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radius ?? 10),
           ),

@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 import '../../../../config/routes/app_routes.dart';
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
 import '../../../../core/functions/helper_functions.dart';
 import '../../../../core/widgets/register_text_field.dart';
 import '../../../../core/widgets/text_button.dart';

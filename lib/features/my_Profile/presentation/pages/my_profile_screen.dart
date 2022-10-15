@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 import 'package:yalla_delivery/features/my_Profile/presentation/cubit/myprofile_cubit.dart';
 import '../../../../config/routes/app_routes.dart';
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
 import '../../../../core/widgets/image_picker_dialog.dart';
 import '../../../../core/widgets/register_text_field.dart';
 import '../../../../service_locator.dart';
@@ -133,8 +133,8 @@ class MyProfileScreen extends StatelessWidget {
                           onTap: () {
                             debugPrint(
                                 '3333333333333333333330000000000 navigate');
-                            Navigator.pushNamed(
-                                context, AppRoutes.changePasswordScreen);
+                            // Navigator.pushNamed(
+                            //     context, RoutePaths.changePasswordScreen);
                           },
                           label: 'password', //localization.text('password'),
                           // visibility: true,

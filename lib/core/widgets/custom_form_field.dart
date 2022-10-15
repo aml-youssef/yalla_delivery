@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../config/themes/screen_utitlity.dart';
-import '../../config/themes/themes.dart';
+import '../../config/themes/text_styles.dart';
 
 class CustomFormField extends StatelessWidget {
   final double? width, height, radius;
@@ -92,7 +92,7 @@ class CustomFormField extends StatelessWidget {
           return null;
         },
         textAlign: TextAlign.right,
-        cursorColor: MainStyle.primaryColor,
+        cursorColor: MainColors.primaryColor,
         decoration: InputDecoration(
             counterText: '',
             contentPadding: const EdgeInsets.all(4),
@@ -103,7 +103,7 @@ class CustomFormField extends StatelessWidget {
             border: InputBorder.none,
             labelText: labelText,
             hintText: hintText,
-            hintStyle: const TextStyle(color: Colors.grey,fontSize: 12)),
+            hintStyle: const TextStyle(color: Colors.grey, fontSize: 12)),
         minLines: minLines,
         maxLines: maxLines,
         maxLength: maxLength,

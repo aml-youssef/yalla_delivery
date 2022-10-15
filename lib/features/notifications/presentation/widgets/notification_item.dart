@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yalla_delivery/config/routes/app_routes.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
-import '../../../../config/themes/themes.dart';
+import '../../../../config/themes/text_styles.dart';
 import '../../../../core/widgets/text_button.dart';
 
 class NotificationItem extends StatelessWidget {
@@ -87,7 +87,7 @@ class NotificationItem extends StatelessWidget {
                   width: context.width * 0.25,
                   buttonFontSize: 11,
                   function: () {
-                    Navigator.pushNamed(context, AppRoutes.detailsScreen);
+                    // Navigator.pushNamed(context, RoutePaths.detailsScreen);
                   },
                 )
               ],
