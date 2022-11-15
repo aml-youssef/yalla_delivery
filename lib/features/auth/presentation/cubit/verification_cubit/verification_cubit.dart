@@ -14,7 +14,7 @@ class VerificationCubit extends Cubit<VerificationState> {
     print('kosmy=$phoneNumber');
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: '+201207333848',
-      timeout: const Duration(minutes: 5),
+      timeout: const Duration(seconds: 5),
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {
         emit(VerificationErrorState(errorMsg: e.message!));

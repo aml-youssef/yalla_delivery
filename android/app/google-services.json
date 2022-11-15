@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "791156231222-cmdj9jtk482tb5fo9dl173jrle251u0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yalla_delivery",
+            "certificate_hash": "1c9c965c9db01a4808455a172684039dc5bf8929"
+          }
+        },
+        {
+          "client_id": "791156231222-j4u2nl1vhqumiadkiu61a113vb1gn8d7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yalla_delivery",
+            "certificate_hash": "48862d244da1ad5eacbe3e75ad9e338c12d9c2a1"
+          }
+        },
+        {
           "client_id": "791156231222-sc2qm39aq2vbdgkmv28acfnk1scfrat4.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +45,13 @@
             {
               "client_id": "791156231222-sc2qm39aq2vbdgkmv28acfnk1scfrat4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "791156231222-m181fcjn20hlcopdamdueoqddbrp1dva.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.yallaDelivery"
+              }
             }
           ]
         }
