@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/service_locator.dart';
-import '../../../../core/widgets/custom_bottom_navigation_bar.dart';
+import '../widgets/custom_bottom_navigation_bar.dart';
 import '../../../../core/widgets/custom_option_dialog.dart';
 import '../../../../core/widgets/popup_page.dart';
 import '../cubit/home_cubit.dart';

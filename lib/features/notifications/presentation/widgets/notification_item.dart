@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yalla_delivery/config/routes/app_routes.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 import '../../../../config/themes/text_styles.dart';
 import '../../../../core/widgets/text_button.dart';

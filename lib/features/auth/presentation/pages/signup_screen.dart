@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 import '../../../../core/functions/helper_functions.dart';
 import '../../../../core/widgets/custom_dialog.dart';
-import '../../../../core/widgets/popup_page.dart';
 import '../../../../core/widgets/register_text_field.dart';
 import '../../../../core/widgets/text_button.dart';
 import '../../../../service_locator.dart';
@@ -43,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
             title: 'ERROR',
           );
         }
-        if (state is RequistLoadingState) {
+        if (state is RequistLoadedState) {
           showDialog(
               context: context,
               builder: (BuildContext context) {

@@ -12,9 +12,10 @@ class VerificationInitialState extends VerificationState {}
 class VerificationLoadingState extends VerificationState {}
 
 class VerificationLoadedState extends VerificationState {
+  final Forgetpw forgetpw;
+  const VerificationLoadedState({required this.forgetpw});
 
 }
-
 
 class VerificationErrorState extends VerificationState {
   final String errorMsg;

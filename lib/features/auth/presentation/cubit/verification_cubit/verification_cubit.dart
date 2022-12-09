@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yalla_delivery/features/auth/domain/entities/forget_password.dart';
 part 'verification_state.dart';
 
 class VerificationCubit extends Cubit<VerificationState> {
@@ -21,7 +22,8 @@ class VerificationCubit extends Cubit<VerificationState> {
       },
       codeSent: (String verificationId, int? resendToken) {
         currentverificationId = verificationId;
-        emit(VerificationLoadedState());
+
+        // emit(VerificationLoadedState(forgetpw: ));
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
@@ -42,7 +44,7 @@ class VerificationCubit extends Cubit<VerificationState> {
           errorMsg: e.message ?? 'error 3o3o3o3o3o3o3o'));
     }
     if (auth.currentUser != null) {
-      emit(VerificationLoadedState());
+      // emit(VerificationLoadedState());
     }
   }
 
@@ -51,6 +53,7 @@ class VerificationCubit extends Cubit<VerificationState> {
 
     ////////
 
-    emit(VerificationLoadedState());
+    // emit(VerificationLoadedState());
   }
+  
 }

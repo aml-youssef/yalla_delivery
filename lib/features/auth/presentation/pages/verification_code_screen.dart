@@ -1,19 +1,12 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pinput/pinput.dart';
-import 'package:yalla_delivery/config/routes/app_routes.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
-import '../../../../config/themes/app_themes.dart';
+import '../../../../config/routes/route_paths.dart';
 import '../../../../config/themes/text_styles.dart';
 import '../../../../core/functions/helper_functions.dart';
-import '../../../../core/widgets/register_text_field.dart';
 import '../../../../core/widgets/text_button.dart';
 import '../../../../service_locator.dart';
-import '../cubit/requist_cubit/requist_cubit.dart';
 import '../cubit/verification_cubit/verification_cubit.dart';
 import '../widgets/verification_code_text_field.dart';
 
@@ -49,8 +42,8 @@ class VerificationcodeScreen extends StatelessWidget {
           );
         }
         if (state is VerificationLoadedState) {
-          // Navigator.pushNamedAndRemoveUntil(
-          //     context, RoutePaths.setPasswordScreen, (route) => false);
+          Navigator.pushNamedAndRemoveUntil(
+              context, RoutePaths.setPasswordScreen, (route) => false);
         }
       }, builder: (context, state) {
         return Scaffold(

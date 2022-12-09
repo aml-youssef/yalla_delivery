@@ -1,10 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
-import '../../../../config/routes/app_routes.dart';
 import '../../../../config/themes/text_styles.dart';
 import '../../../../core/functions/helper_functions.dart';
 import '../../../../core/widgets/register_text_field.dart';
@@ -22,7 +19,6 @@ class SetPasswordScreen extends StatelessWidget {
       return;
     }
     formKey.currentState!.save();
-
     await BlocProvider.of<VerificationCubit>(context).setNewPassword(password);
   }
 

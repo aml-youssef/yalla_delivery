@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
 
     await BlocProvider.of<LoginCubit>(context)
         .getDriverLoginData(userName: username, password: password);
-    // Navigator.pushNamed(context, AppRoutes.);
+    // Navigator.pushNamed(context, RoutePaths.);
   }
 
   @override

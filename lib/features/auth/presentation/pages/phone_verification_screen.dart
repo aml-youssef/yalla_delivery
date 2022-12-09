@@ -1,19 +1,13 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_field/phone_number.dart';
-import 'package:yalla_delivery/config/routes/app_routes.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
+import '../../../../config/routes/route_paths.dart';
 import '../../../../config/themes/text_styles.dart';
 import '../../../../core/functions/helper_functions.dart';
-import '../../../../core/widgets/register_text_field.dart';
 import '../../../../core/widgets/text_button.dart';
 import '../../../../service_locator.dart';
-import '../cubit/requist_cubit/requist_cubit.dart';
 import '../cubit/verification_cubit/verification_cubit.dart';
 
 class PhoneVerificationScreen extends StatelessWidget {
@@ -46,7 +40,8 @@ class PhoneVerificationScreen extends StatelessWidget {
             );
           }
           if (state is VerificationLoadedState) {
-            // Navigator.pushNamed(context, RoutePaths.verificationcodeScreen);
+                      Navigator.pushNamedAndRemoveUntil(
+              context, RoutePaths.verificationcodeScreen, (route) => false);
           }
         },
         builder: (context, state) {

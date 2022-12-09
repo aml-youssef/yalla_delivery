@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/core/utils/media_quiry_values.dart';
 import 'package:yalla_delivery/features/my_Profile/presentation/cubit/myprofile_cubit.dart';
-import '../../../../config/routes/app_routes.dart';
 import '../../../../config/themes/text_styles.dart';
 import '../../../../core/widgets/image_picker_dialog.dart';
 import '../../../../core/widgets/register_text_field.dart';

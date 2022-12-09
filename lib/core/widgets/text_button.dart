@@ -42,19 +42,3 @@ class CustomTextButton extends StatelessWidget {
     );
   }
 }
-
-// TextButton(
-//         onPressed: function,
-//         child: Text(
-//           title!,
-//           style: MainTheme.buttonTextStyle,
-//           // textAlign: TextAlign.center,
-//         ),
-//         style: TextButton.styleFrom(
-//           elevation: 5,
-//           shape: RoundedRectangleBorder(
-//               borderRadius: BorderRadius.circular(radius ?? 10)),
-//           shadowColor: MainStyle.shadowColor,
-//           backgroundColor: MainStyle.primaryColor,
-//         ),
-//       ),

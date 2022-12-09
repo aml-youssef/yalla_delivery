@@ -16,7 +16,7 @@ Future<void> main() async {
   
   await ServiceLocator().init();
   
-  Bloc.observer = AppBlocObserver();
+  // Bloc.observer = AppBlocObserver();
 
   runApp(const MyApp());
 }

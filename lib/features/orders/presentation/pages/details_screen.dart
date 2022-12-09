@@ -10,11 +10,11 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        child: CustomAppBar(
+        preferredSize: Size.fromHeight(context.height * 0.1),
+        child: const CustomAppBar(
           title: 'التفاصيل',
           back: true,
         ),
-        preferredSize: Size.fromHeight(context.height * 0.1),
       ),
       body: Directionality(
         textDirection: TextDirection.rtl,

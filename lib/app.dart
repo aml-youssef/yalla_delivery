@@ -4,6 +4,7 @@ import 'package:yalla_delivery/features/my_Profile/presentation/pages/change_pas
 import 'package:yalla_delivery/features/orders/presentation/pages/orders_screen.dart';
 import 'package:yalla_delivery/service_locator.dart';
 import 'config/routes/app_routes.dart';
+import 'core/widgets/no_internet_connection_screen.dart';
 import 'features/auth/presentation/pages/login_screen.dart';
 import 'features/auth/presentation/pages/phone_verification_screen.dart';
 import 'features/auth/presentation/pages/set_password_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.onGenetatearoute,
-      home: PhoneVerificationScreen(),
+      home: LoginScreen(),
     );
   }
 }

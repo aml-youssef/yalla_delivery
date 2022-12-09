@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/features/notifications/presentation/cubit/notifications_cubit.dart';
 import 'package:yalla_delivery/service_locator.dart';
-
 import '../widgets/notification_item.dart';
 
 class NotificationsScreen extends StatelessWidget {
@@ -21,7 +20,7 @@ class NotificationsScreen extends StatelessWidget {
               primary: false,
               shrinkWrap: true,
               itemCount: 3,
-              itemBuilder: (context, i) => NotificationItem(),
+              itemBuilder: (context, i) => const NotificationItem(),
             ),
           );
         }
