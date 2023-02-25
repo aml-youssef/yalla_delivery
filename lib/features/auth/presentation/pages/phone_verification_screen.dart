@@ -116,7 +116,6 @@ class PhoneVerificationScreen extends StatelessWidget {
                         return CustomTextButton(
                           title: 'ارسال',
                           function: () {
-                            
                             _saveForm(context);
                           },
                           radius: 25,

@@ -1,9 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:yalla_delivery/core/errors/exceptions.dart';
 import 'package:yalla_delivery/features/auth/domain/entities/driver_login.dart';
 import 'package:yalla_delivery/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:yalla_delivery/features/auth/domain/entities/forget_password.dart';
 import 'package:yalla_delivery/features/auth/domain/entities/requist.dart';
+import 'package:yalla_delivery/features/auth/domain/entities/reset_after_forget.dart';
 import '../../domain/repositories/base_driver_login_repository.dart';
 import '../datasources/auth_remote_datasource.dart';
 
@@ -63,6 +65,22 @@ class DriverAuthRepository implements BaseDriverAuthRepository {
           await baseRemoteDataSource.forgetPassword(phone: phone, token: token);
       return Right(response);
     } on ServerExeption catch (error) {
+      return Left(ServerFailure(messege: error.errormsg));
+    } on IntenetConnectionException catch (error) {
+      return Left(IntenetConnectionFailure(messege: error.errorMessege));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ResetAfterForget>> resetAfterForget({
+    required String phone,
+    required String password,
+    required String token,
+  }) async {
+    try{
+      final response = await baseRemoteDataSource.resetAfterForget(phone: phone, password: password, token: token,);
+      return Right(response);
+    }on ServerExeption catch (error) {
       return Left(ServerFailure(messege: error.errormsg));
     } on IntenetConnectionException catch (error) {
       return Left(IntenetConnectionFailure(messege: error.errorMessege));

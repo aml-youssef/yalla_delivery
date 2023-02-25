@@ -3,11 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yalla_delivery/features/auth/domain/entities/driver_login.dart';
-import 'package:yalla_delivery/features/auth/domain/entities/requist.dart';
-import 'package:yalla_delivery/features/auth/domain/usecases/create_driver_requist_usecase.dart';
 import 'package:yalla_delivery/features/auth/domain/usecases/get_driver_login_data_usecase.dart';
 import 'package:yalla_delivery/features/my_Profile/data/models/driver_model.dart';
-
 import '../../../../../core/errors/failure.dart';
 import '../../../../../core/functions/helper_functions.dart';
 part 'login_state.dart';

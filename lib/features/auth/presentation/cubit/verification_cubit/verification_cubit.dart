@@ -48,12 +48,11 @@ class VerificationCubit extends Cubit<VerificationState> {
     }
   }
 
-  Future<void> setNewPassword(String newPassword) async {
-    emit(VerificationLoadingState());
+  // Future<void> setNewPassword(String newPassword) async {
+  //   emit(VerificationLoadingState());
 
-    ////////
-
-    // emit(VerificationLoadedState());
-  }
+    
+  //   // emit(VerificationLoadedState());
+  // }
   
 }

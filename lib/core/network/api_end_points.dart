@@ -1,7 +1,7 @@
 class ApiEndPoints {
   // static const String baseUrl = 'https://resturant-appv1.herokuapp.com/';
-  static const String baseUrl = 'http://192.168.0.102:3000/';
-
+  // static const String baseUrl = 'http://192.168.0.102:3000/';
+  static const String baseUrl = 'https://resturant-yala.onrender.com/';
   static const String driverLogin = '${baseUrl}driver/login';
   static String singleDriver(String id) => '${baseUrl}driver/$id';
   static const String driverImg = '${baseUrl}driver-img';

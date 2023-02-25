@@ -7,6 +7,7 @@ import '../../../../core/functions/helper_functions.dart';
 import '../../../../core/widgets/register_text_field.dart';
 import '../../../../core/widgets/text_button.dart';
 import '../../../../service_locator.dart';
+import '../cubit/set_password/cubit/setpassword_cubit.dart';
 import '../cubit/verification_cubit/verification_cubit.dart';
 
 class SetPasswordScreen extends StatelessWidget {
@@ -19,16 +20,16 @@ class SetPasswordScreen extends StatelessWidget {
       return;
     }
     formKey.currentState!.save();
-    await BlocProvider.of<VerificationCubit>(context).setNewPassword(password);
+    // await BlocProvider.of<SetpasswordCubit>(context).setPassword(phone: , password: password, token: ,);
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<VerificationCubit>(),
-      child: BlocConsumer<VerificationCubit, VerificationState>(
+      child: BlocConsumer<SetpasswordCubit, SetpasswordState>(
         listener: (context, state) {
-          if (state is VerificationErrorState) {
+          if (state is SetpasswordErrorState) {
             HelperFunctions.errorBar(
               context,
               message: state.errorMsg,
@@ -36,7 +37,7 @@ class SetPasswordScreen extends StatelessWidget {
               title: 'ERROR',
             );
           }
-          if (state is VerificationLoadedState) {
+          if (state is SetpasswordLoadedState) {
             // Navigator.pushNamed(context, AppRoutes.);
           }
         },
@@ -94,7 +95,7 @@ class SetPasswordScreen extends StatelessWidget {
                       padding: EdgeInsets.only(
                           bottom: 20, top: context.height * 0.06),
                       child: ConditionalBuilder(
-                        condition: state is! VerificationLoadingState,
+                        condition: state is! SetpasswordLoadingState,
                         builder: (context) {
                           return CustomTextButton(
                             title: 'تأكيد',

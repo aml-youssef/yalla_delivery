@@ -7,18 +7,27 @@ import '../../../../core/network/api_end_points.dart';
 import '../models/driver_Login_model.dart';
 import '../models/forget_password_model.dart';
 import '../models/requist_model.dart';
+import '../models/reset_after_forget_model.dart';
 
 abstract class BaseAuthRemoteDataSource {
   Future<DriverLogin> getDriverLoginData(
       {required String userName, required String password});
+  
   Future<RequistModel> createRequist(
       {required String username,
       required String phone,
       required String address,
       required String motoType,
       required String age});
+  
   Future<ForgetpwModel> forgetPassword(
       {required String phone, required String token});
+  
+  Future<ResetAfterForgetModel> resetAfterForget({
+    required String phone,
+    required String password,
+    required String token,
+  });
 }
 
 class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
@@ -33,7 +42,7 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
     if (isConnected) {
       // Response response =
       return dio
-          .post('http://192.168.0.102:3000/driver/login', data: {
+          .post(ApiEndPoints.driverLogin, data: {
             'username': userName,
             'password': password,
           })
@@ -43,7 +52,6 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
             print(response);
             throw ServerExeption(errormsg: 'alooooooooo');
           });
-
       // if (response.statusCode == 200) {
       //   return DriverLoginModel.fromMap(response.data);
       // } else {
@@ -65,7 +73,6 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
   }) async {
     final bool isConnected = await _isConnected;
     if (isConnected) {
-      // Response response =
       return await dio.post(ApiEndPoints.createRequist, data: {
         'username': username,
         'age': age,
@@ -80,12 +87,6 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
         throw ServerExeption(
             errormsg: response.response.data["errors"]["msgs"]["ar"]);
       });
-      // if (response.statusCode == 200) {
-      //   return RequistModel.fromMap(response.data);
-      // } else {
-      //   throw ServerExeption(
-      //       errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
-      // }
     } else {
       throw IntenetConnectionException(errorMessege: 'you are not connected');
     }
@@ -96,9 +97,8 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
       {required String phone, required String token}) async {
     final bool isConnected = await _isConnected;
     if (isConnected) {
-      // Response response =
       return dio
-          .post(ApiEndPoints.driverLogin, data: {
+          .post(ApiEndPoints.forgetpw, data: {
             'phone': phone,
             'token': token,
           })
@@ -106,12 +106,30 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
           .catchError((response) {
             throw ServerExeption(errormsg: 'alooooooooo');
           });
-      // if (response.statusCode == 200) {
-      //   return DriverLoginModel.fromMap(response.data);
-      // } else {
-      //   throw ServerExeption(
-      //       errorMessegeModel: ErrorMessegeModel.fromMap(response.data));
-      // }
+    } else {
+      throw IntenetConnectionException(errorMessege: 'you are not connected');
+    }
+  }
+
+  @override
+  Future<ResetAfterForgetModel> resetAfterForget({
+    required String phone,
+    required String password,
+    required String token,
+  }) async {
+    final bool isConnected = await _isConnected;
+    if (isConnected) {
+      return dio
+          .put(ApiEndPoints.resetAfterForget, data: {
+            'phone': phone,
+            'password': password,
+            'secPassword': password,
+            'token': token,
+          })
+          .then((response) => ResetAfterForgetModel.fromMap(response.data))
+          .catchError((response) {
+            throw ServerExeption(errormsg: 'alooooooooo');
+          });
     } else {
       throw IntenetConnectionException(errorMessege: 'you are not connected');
     }
